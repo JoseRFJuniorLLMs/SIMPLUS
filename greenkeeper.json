@@ -1,0 +1,9 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "simplus-cliente-template/package.json"
+      ]
+    }
+  }
+}
