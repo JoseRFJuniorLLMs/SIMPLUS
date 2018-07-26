@@ -1,13 +1,5 @@
 {
-    "Principal": "Dashboard",
-    "Relatórios": "Reports",
-    "Todos Produtos": "All Product",
-    "Produtos/Caixas E1": "Product/Box E1",
-    "Produtos E1": "Product E1",
-    "Caixas E1": "Box E1",
-    "Produtos/Caixas E2": "Product/Box E2",
-    "Produtos E2": "Product E2",
-    "Caixas E2": "Box E2",
+    "Dashboard": "Dashboard",
     "Charts": "Charts",
     "Tables": "Tables",
     "Forms": "Forms",
@@ -36,6 +28,5 @@
     "Pending Task" : "Pending Task",
     "In queue" : "In queue",
     "Mail" : "Mail",
-    "View All" : "View All",
-   "Relatório":"Rel"
+    "View All" : "View All"
 }

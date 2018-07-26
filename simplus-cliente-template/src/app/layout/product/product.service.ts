@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Product } from './product.model';
 import { environment as env } from '../../../environments/environment.prod';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +15,6 @@ import { environment as env } from '../../../environments/environment.prod';
 export class ProductService {
 
   constructor(private http: HttpClient) { }
-  /*
-Downaload XLS
-
-  http://localhost:4200/download1 //Relatório com todos os Produtos da Empresa 1
-   http://localhost:4200/download2 //Relatório com todos os Produtos da empresa 2
-
-  http://localhost:4200/download1cx1 //Relatório Empresa 1 caixas
-  http://localhost:4200/download2cx2 //Relatório Empresa 2 caixa
-
-  http://localhost:4200/download1p //Relatório Empresa 1 Produtos
-  http://localhost:4200/download2p //Relatório Empresa 2 Produtos
-
-*/
 
   private readonly PATH_ALL: string  = 'products'; // Todos Todas
   private readonly PATH_ALL_E1: string  = 'companys/1/products'; // Todos Empresa { 1 }
@@ -32,11 +23,35 @@ Downaload XLS
   private readonly PATH_ALL_CX_EM2: string  = 'companys/2/gtln14'; // Caixas Empresa { 2 }
   private readonly PATH_ALL_PRO_EM1: string  = 'companys/1/gtln13'; // Produtos Empresa { 1 }
   private readonly PATH_ALL_PRO_EM2: string  = 'companys/2/gtln13'; // Produtos Empresa { 2 }
-  
-  API_DOWNLOAD = 'http://localhost:8080/download';
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+       console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    return ('SERVIDOR FORA DO AR');
+  }
+
+  private extractData(res: Response) {
+    let body = res;
+    return body || { };
+  }
+
+  errorHandler(error: HttpErrorResponse) {
+    return Observable.throw(error.message || 'Servidor Erro !');
+   }
 
   getProducts() {
-    return this.http.get<Product[]>(env.baseApiUrl + this.PATH_ALL);
+    return this.http.get<Product[]>(env.baseApiUrl + this.PATH_ALL, httpOptions);
+  }
+
+  getProductsx(): Observable<Product[]> {
+    return this.http.get<Product[]>(env.baseApiUrl + this.PATH_ALL, httpOptions)
+                    .catch(this.errorHandler);
+
   }
 
   getProducts13() {

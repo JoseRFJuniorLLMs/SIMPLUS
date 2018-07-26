@@ -24,7 +24,9 @@ Executar API:
  ou
 java -jar gestao-0.0.1-SNAPSHOT.jar
 
-Endereços
+Endereços: https://simplus-api.firebaseapp.com
+
+ONLINE: 
   
   http://localhost:4200/list-product  //Todos Produtos de Todas Empresas
 
