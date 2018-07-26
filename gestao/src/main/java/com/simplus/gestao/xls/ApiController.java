@@ -1,0 +1,24 @@
+package com.simplus.gestao.xls;
+
+import com.simplus.gestao.domain.Product;
+import com.simplus.gestao.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+public class ApiController {
+
+    @Autowired
+    private ProductService productService;
+
+    //@RequestMapping(value = "/api/", method = RequestMethod.GET)
+    public  List<Product> viewXLS() {
+
+        return  productService.findAll();
+
+    }
+
+
+}

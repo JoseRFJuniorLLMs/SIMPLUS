@@ -1,0 +1,36 @@
+<app-page-header [heading]="'Produtos E2'" [icon]="'fa-wrench'"></app-page-header>
+<div class="pos-f-t">
+  <nav class="navbar navbar-dark btn-danger"> Relatórios
+  </nav>
+</div>
+<div class="card text-center">
+    <div class="col-md-14">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th class="hidden">Código</th>
+            <th>GTIN</th>
+            <th>Descrição</th>
+            <th>Data Cadastro</th>
+           </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let product of products">
+            <td class="hidden">{{product.id}}</td>
+            <td>{{product.gtln}}<span class="badge badge-pill badge-info" data-toggle="tooltip"
+                data-placement="left" title="Número GTIN-13/14 codificado em código de barras EAN-13. O primeiro dígito é sempre colocado fora do símbolo; Além disso, um indicador direito é usado para indicar uma Zona Silenciosaque é necessária para que os scanners de código de barras funcionem corretamente." >Info</span></td>
+          
+            <td>{{product.description}}</td>
+            <td>{{product.lastUpdate}}</td>
+           </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer text-muted"><!--REFATORAR USANDO responseType: ResponseContentType.Blob,-->
+
+        <a href="http://localhost:8080/download2p" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Gera um relatório com infomações da empresa A1, NO FORMATO XLS, compactado.">Download Relatório XLS 
+          <span class="badge badge-light">1</span> 
+        </a>
+    
+      </div>
+</div>

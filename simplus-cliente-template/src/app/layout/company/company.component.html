@@ -1,0 +1,29 @@
+
+<app-page-header [heading]="'Lista de Empresas'" [icon]="'fa-wrench'"></app-page-header>
+<div class="pos-f-t">
+  <nav class="navbar navbar-dark btn-danger"> Relatórios
+  </nav>
+</div>
+<div class="col-md-6">
+   <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Código</th>
+      <th>Nome Fantasia</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let company of companys">
+      <td class="hidden">{{company.id}}</td>
+      <td>{{company.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>  
+
+<div class="card-footer text-muted">
+  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Gera um relatório com infomações da empresa A1, NO FORMATO XLS, compactado.">
+    Download Relatório XLS <span class="badge badge-light">4</span>
+  </button>
+</div>
+
