@@ -3,6 +3,7 @@ package com.simplus.xls;
 import com.simplus.domain.Product;
 import com.simplus.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class ApiController {
     private ProductService productService;
 
     //@RequestMapping(value = "/api/", method = RequestMethod.GET)
+    @RequestMapping(value="/zip", produces="application/zip")
     public  List<Product> viewXLS() {
 
         return  productService.findAll();

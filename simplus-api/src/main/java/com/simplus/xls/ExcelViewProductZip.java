@@ -9,13 +9,12 @@ import org.springframework.web.servlet.view.document.AbstractXlsView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Map;
-import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-public class ExcelViewProduct extends AbstractXlsView {
+public class ExcelViewProductZip extends AbstractXlsView {
 
 
     @Override

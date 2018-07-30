@@ -5,10 +5,12 @@ import { Observable } from 'rxjs';
 import { Product } from './product.model';
 import { environment as env } from '../../../environments/environment.prod';
 
+import { Page} from '../pagination/page';
+import { queryPaginated } from '../pagination/pagination';
+
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-
 @Injectable({
   providedIn: 'root'
 })
@@ -36,7 +38,7 @@ export class ProductService {
   }
 
   private extractData(res: Response) {
-    let body = res;
+    const body = res;
     return body || { };
   }
 
@@ -45,14 +47,26 @@ export class ProductService {
    }
 
   getProducts() {
-    return this.http.get<Product[]>(env.baseApiUrl + this.PATH_ALL, httpOptions);
+    return this.http.get<Product[]>(env.baseApiUrl + this.PATH_ALL);
+  }
+/*
+  listPaginated(urlOrFilter?: string | object): Observable<Page<Product>> {
+    return queryPaginated<Product>(this.http, env.baseApiUrl + this.PATH_ALL, urlOrFilter);
+  }
+ 
+  getProducts(page: number, count: number) {
+    return this.http.get<Product[]>(env.baseApiUrl + this.PATH_ALL + /${page}/${count});
+  }
+
+ findAllProducts(page:number,count:number){
+    return this.http.get(`${HELP_DESK_API}/api/ticket/${page}/${count}`);
   }
 
   getProductsx(): Observable<Product[]> {
     return this.http.get<Product[]>(env.baseApiUrl + this.PATH_ALL, httpOptions)
                     .catch(this.errorHandler);
 
-  }
+  }*/
 
   getProducts13() {
     return this.http.get<Product[]>(env.baseApiUrl  + this.PATH_ALL_E1);

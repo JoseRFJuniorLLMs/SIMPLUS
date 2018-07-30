@@ -12,11 +12,11 @@ const routes: Routes = [
             { path: 'product13', loadChildren: './product13/product13.module#Product13Module' },
             { path: 'product13c', loadChildren: './product13c/product13c.module#Product13cModule' },
             { path: 'product13p', loadChildren: './product13p/product13p.module#Product13pModule' },
-            
+
             { path: 'product14', loadChildren: './product14/product14.module#Product14Module' },
             { path: 'product14c', loadChildren: './product14c/product14c.module#Product14cModule' },
             { path: 'product14p', loadChildren: './product14p/product14p.module#Product14pModule' },
-         
+
             { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
